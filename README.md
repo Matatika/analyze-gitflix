@@ -4,7 +4,7 @@ This analyze bundle is an example of a Matatika Custom Datasource with a spreads
 
 ## Deployment
 
-To import data from a spreadsheet / csv file at `https://github.com/Matatika/analyze-gitflix/GitFlixUsers.csv` and
+To import data from a spreadsheet / csv file at `https://raw.githubusercontent.com/Matatika/analyze-gitflix/master/GitFlixUsers.csv` and
 publish the charts into your [Matatika workspace](https://www.matatika.com) -
 
 - create a new workspace (Profile -> New workspace)
@@ -31,7 +31,7 @@ extractors:
     settings:
       - name: tables
         kind: array
-        value: '[{"path":"https://meltano.com/files","name":"gitflixusers","pattern":"GitFlixUsers.csv","start_date":"2021-01-01T00:00:00Z","key_properties":["id"],"format":"csv"}]'
+        value: '[{"path":"https://raw.githubusercontent.com/Matatika/analyze-gitflix/master","name":"gitflixusers","pattern":"GitFlixUsers.csv","start_date":"2021-01-01T00:00:00Z","key_properties":["id"],"format":"csv"}]'
         description:
           An array holding json objects that each describe a set of targeted
           source files. See docs for details.
@@ -74,7 +74,7 @@ extractors:
     settings:
       - name: tables
         kind: array
-        value: '[{"path":"https://meltano.com/files","name":"gitflixusers","pattern":"GitFlixUsers.csv","start_date":"2021-01-01T00:00:00Z","key_properties":["id"],"format":"csv"}]'
+        value: '[{"path":"https://raw.githubusercontent.com/Matatika/analyze-gitflix/master","name":"gitflixusers","pattern":"GitFlixUsers.csv","start_date":"2021-01-01T00:00:00Z","key_properties":["id"],"format":"csv"}]'
         description:
           An array holding json objects that each describe a set of targeted
           source files. See docs for details.
