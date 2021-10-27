@@ -1,0 +1,29 @@
+version: 19
+extractors:
+  - name: tap-gitflix
+    namespace: tap_gitflix
+    label: Gitflix
+    description:
+      Example custom extractor.
+    docs: https://meltano.com/plugins/extractors/spreadsheets-anywhere.html
+    repo: https://github.com/ets/tap-spreadsheets-anywhere
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    executable: tap-spreadsheets-anywhere
+    capabilities:
+      - catalog
+      - discover
+      - state
+    settings:
+      - name: tables
+        kind: array
+        value: '[{"path":"https://raw.githubusercontent.com/Matatika/analyze-gitflix/master","name":"gitflixusers","pattern":"GitFlixUsers.csv","start_date":"2021-01-01T00:00:00Z","key_properties":["id"],"format":"csv"}]'
+        description:
+          An array holding json objects that each describe a set of targeted
+          source files. See docs for details.
+files:
+  - name: analyze-gitflix
+    namespace: tap_gitflix
+    update:
+      analyze/datasets/tap-gitflix/user-ages.yml: true
+      analyze/datasets/tap-gitflix/user-genders.yml: true
+    pip_url: git+https://github.com/Matatika/analyze-gitflix
