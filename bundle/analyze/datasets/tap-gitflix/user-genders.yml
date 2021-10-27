@@ -1,0 +1,45 @@
+version: 0.1
+datasets:
+  user-genders:
+    title: User Genders
+    metadata: |-
+      {
+        "name": "gitflixusers",
+        "label": "GitFlixUsers",
+        "related_table": {
+          "columns": [],
+          "aggregates": [
+            {
+              "label": "Male",
+              "name": "gender_male"
+            },
+            {
+              "label": "Female",
+              "name": "gender_female"
+            }
+          ]
+        }
+      }
+    visualisation: |-
+      {
+        "chartjs-chart": {
+          "chartType": "bar",
+            "options": {
+              "scales": {
+                "yAxes": [
+                  {
+                    "ticks": {
+                      "beginAtZero": true,
+                      "stepSize": 1
+                    }
+                  }
+                ]
+              }
+            }
+        }
+      }
+    query: |-
+      SELECT
+        COUNT(CASE WHEN gender = 'male' THEN 1 END) "gitflixusers.gender_male",
+        COUNT(CASE WHEN gender = 'female' THEN 1 END) "gitflixusers.gender_female"
+      FROM gitflixusers

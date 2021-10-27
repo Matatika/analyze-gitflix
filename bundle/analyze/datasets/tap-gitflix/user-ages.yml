@@ -1,0 +1,32 @@
+version: 0.1
+datasets:
+  user-ages:
+    title: User Ages
+    metadata: |-
+      {
+        "name": "gitflixusers",
+        "label": "GitFlixUsers",
+        "related_table": {
+          "columns": [
+            {
+              "label": "Name",
+              "name": "name"
+            }
+          ], 
+          "aggregates": [
+            {
+              "label": "Age",
+              "name": "age"
+            }
+          ]
+        }
+      }
+    visualisation: |-
+      {
+        "chartjs-chart": {
+          "chartType": "bar"
+        }
+      }
+    query: |-
+      SELECT name "gitflixusers.name", age "gitflixusers.age"
+      FROM gitflixusers
